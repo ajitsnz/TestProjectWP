@@ -45,6 +45,8 @@ namespace TestProjectWP.Bdd.Steps
         [When(@"I entered all given values (.*), (.*), (.*), (.*), (.*)")]
         public void WhenIEnteredAllGivenUser(String currentAge,string employmentStatus,string salary,string kiwiMemberContribution, string riskProfile)
         {
+
+            //Todo : Clean up required move to commons... 
             var userDetails = new User()
             {
             CurrentAge = uint.Parse(currentAge),
