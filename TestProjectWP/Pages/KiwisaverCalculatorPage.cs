@@ -31,10 +31,10 @@ namespace TestProjectWP.Pages
 			if(user.EmploymentStatus.Equals(EmploymentStatus.Employed)) _salary.SendKeys(user.Salary.ToString());
 			SetKiwimemberContribution(user.KiwiMemberContribution);
 			_currentKiwisaverBalance.SendKeys(user.CurrentKiwiBalance.ToString());
-			_voluntaryContributions.SendKeys(user.voluntaryContributions.ToString());
+			_voluntaryContributions.SendKeys(user.VoluntaryContributions.ToString());
 			SetRiskProfile(user.RiskProfile);
             _savingsGoalAtRetirement.SendKeys(user.SavingsGoalAtRetirement.ToString());
-			SetFrequency(user.VoluntaryContributionsFrequency);
+			SetFrequency(user.VCFrequency);
 			return this;
 		}
 

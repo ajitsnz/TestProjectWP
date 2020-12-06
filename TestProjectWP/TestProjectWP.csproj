@@ -19,7 +19,7 @@
 
   <ItemGroup>
     <None Update="TestData\KS_TestData.csv">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 

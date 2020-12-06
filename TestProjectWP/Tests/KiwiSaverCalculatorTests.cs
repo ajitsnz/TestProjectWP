@@ -21,7 +21,7 @@ namespace TestProjectWP.Tests
 		    var kiwisaverCalculator = new KiwisaverCalculatorPage(Driver);
             kiwisaverCalculator.FillKiwisaverRetirementCalculator(userDetails);
             kiwisaverCalculator.Submit();
-			kiwisaverCalculator.IsValidProjection(userDetails.projection);
+			kiwisaverCalculator.IsValidProjection(userDetails.Projection);
 		}
 
 		[Test]
@@ -53,7 +53,7 @@ namespace TestProjectWP.Tests
 					Salary = 82000, 
 					KiwiMemberContribution = KiwiMemberContribution.FourPercent, 
 					RiskProfile = RiskProfile.Defensive,
-					projection = 436365
+					Projection = 436365
 				}).SetName("Kiwisaver projected balance for Employed user at age 30");
 
 
@@ -72,12 +72,12 @@ namespace TestProjectWP.Tests
 				{
 					CurrentAge = 45,
 					EmploymentStatus = EmploymentStatus.SelfEmployed,
-					voluntaryContributions = 90,
-					VoluntaryContributionsFrequency = Frequency.Fortnightly,
+					VoluntaryContributions = 90,
+					VCFrequency = Frequency.Fortnightly,
 					CurrentKiwiBalance = 100000,
 					RiskProfile = RiskProfile.Conservative,
 					SavingsGoalAtRetirement = 290000,
-					projection = 259581
+					Projection = 259581
 				}).SetName("Kiwisaver projected balance for Self Employed user at age 45");
 
 
@@ -97,12 +97,12 @@ namespace TestProjectWP.Tests
 				{
 					CurrentAge = 55,
 					EmploymentStatus = EmploymentStatus.NotEmployed,
-					voluntaryContributions = 10,
-					VoluntaryContributionsFrequency = Frequency.Annually,
+					VoluntaryContributions = 10,
+					VCFrequency = Frequency.Annually,
 					CurrentKiwiBalance = 140000,
 					RiskProfile = RiskProfile.Balanced,
 					SavingsGoalAtRetirement = 200000,
-					projection = 197679
+					Projection = 197679
 				}).SetName("Kiwisaver projected balance for unemployeed user at age 55");
 
 			}

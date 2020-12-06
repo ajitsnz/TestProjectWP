@@ -13,15 +13,15 @@ namespace TestProjectWP.Models
 		public uint CurrentAge;
 		public EmploymentStatus EmploymentStatus;
 		public uint CurrentKiwiBalance;
-		public uint voluntaryContributions;
-		public Frequency VoluntaryContributionsFrequency;
+		public uint VoluntaryContributions;
+		public Frequency VCFrequency;
 		public RiskProfile RiskProfile;
 		public uint SavingsGoalAtRetirement;
 
 		public KiwiMemberContribution KiwiMemberContribution;
 		public uint Salary;
 
-		public uint projection;
+		public uint Projection;
 
 
 
@@ -41,8 +41,8 @@ namespace TestProjectWP.Models
 			CurrentAge = _currentAge;
 			EmploymentStatus = _employmentStatus;
 			CurrentKiwiBalance = _currentKiwisaverBalance ;
-			voluntaryContributions = _voluntaryContributions ;
-			VoluntaryContributionsFrequency = _voluntaryContributionsFrequency ;
+			VoluntaryContributions = _voluntaryContributions ;
+			VCFrequency = _voluntaryContributionsFrequency ;
 			RiskProfile = _RiskProfile ;
 			SavingsGoalAtRetirement = _savingsGoalAtRetirement ;
 
@@ -51,7 +51,7 @@ namespace TestProjectWP.Models
                 Salary = _salary;
                 KiwiMemberContribution = _kiwiMemberContribution;
             }
-			projection = _projection;
+			Projection = _projection;
 		}
 
 		public void CreateRandomIndividual(
@@ -69,8 +69,8 @@ namespace TestProjectWP.Models
 			CurrentAge = _currentAge != 0 ? _currentAge : TestContext.CurrentContext.Random.NextUInt(18, 64); 
 			EmploymentStatus = _employmentStatus != EmploymentStatus.None ? _employmentStatus : EmploymentStatus.Employed;
 			CurrentKiwiBalance = _currentKiwisaverBalance != 0 ? _currentKiwisaverBalance : TestContext.CurrentContext.Random.NextUInt();
-			voluntaryContributions = _voluntaryContributions != 0 ? _voluntaryContributions : TestContext.CurrentContext.Random.NextUInt(1000);
-			VoluntaryContributionsFrequency = _voluntaryContributionsFrequency != Frequency.None ? _voluntaryContributionsFrequency : Frequency.Fortnightly;
+			VoluntaryContributions = _voluntaryContributions != 0 ? _voluntaryContributions : TestContext.CurrentContext.Random.NextUInt(1000);
+			VCFrequency = _voluntaryContributionsFrequency != Frequency.None ? _voluntaryContributionsFrequency : Frequency.Fortnightly;
 			RiskProfile = _RiskProfile != RiskProfile.None ? _RiskProfile : RiskProfile.Growth;
             SavingsGoalAtRetirement = _savingsGoalAtRetirement != 0 ? _savingsGoalAtRetirement : TestContext.CurrentContext.Random.NextUInt();
 
