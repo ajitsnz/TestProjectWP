@@ -4,6 +4,7 @@ using TestProjectWP.Models;
 using TestProjectWP.Dictionaries;
 using FluentAssertions;
 using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace TestProjectWP.Pages
 {
@@ -24,14 +25,14 @@ namespace TestProjectWP.Pages
 
 		public KiwisaverCalculatorPage FillKiwisaverRetirementCalculator(User user)
 		{
-			_currentAge.SendKeys(user.CurrentAge.ToString());
-			SetEmploymentStatus(user.EmploymentStatus);
-			if(user.EmploymentStatus.Equals(EmploymentStatus.Employed)) _salary.SendKeys(user.Salary.ToString());
+			_currentAge.SendText(user.CurrentAge.ToString());
+			SetEmploymentStatus(user.EmploymentStatus); 
+			if(user.EmploymentStatus.Equals(EmploymentStatus.Employed)) _salary.SendText(user.Salary.ToString());
 			SetKiwimemberContribution(user.KiwiMemberContribution);
-			_currentKiwisaverBalance.SendKeys(user.CurrentKiwiBalance.ToString());
-			_voluntaryContributions.SendKeys(user.VoluntaryContributions.ToString());
+			_currentKiwisaverBalance.SendText(user.CurrentKiwiBalance.ToString());
+			_voluntaryContributions.SendText(user.VoluntaryContributions.ToString());
 			SetRiskProfile(user.RiskProfile);
-            _savingsGoalAtRetirement.SendKeys(user.SavingsGoalAtRetirement.ToString());
+            _savingsGoalAtRetirement.SendText(user.SavingsGoalAtRetirement.ToString());
 			SetFrequency(user.VCFrequency);
 			return this;
 		}

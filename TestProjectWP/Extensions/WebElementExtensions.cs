@@ -9,6 +9,8 @@ namespace TestProjectWP.Extensions
 {
 	public static class WebElementExtensions
 	{
+		public static bool Debug = false;
+
 		public static void ClearByHotkeys(this IWebElement webElement)
 		{
 			var driver = webElement.getDriverFromWebElement();
@@ -22,6 +24,29 @@ namespace TestProjectWP.Extensions
 			actions.KeyUp(Keys.Control);
 			actions.SendKeys(Keys.Backspace);
 			actions.Build().Perform();
+		}
+
+
+		public static void HighlightElement(this IWebElement webElement, int Duration = 3)
+		{
+            IJavaScriptExecutor JSDriver;
+			var driver = getDriverFromWebElement(webElement);
+			JSDriver = (IJavaScriptExecutor)driver;
+			string OriginalStyle = webElement.GetAttribute("style");
+			JSDriver.ExecuteScript("arguments[0].setAttribute(arguments[1], arguments[2])",
+			webElement,
+		   "style",
+		   "border: 2px solid red; border-style: dashed;");
+			Thread.Sleep(Duration * 500);
+			JSDriver.ExecuteScript("arguments[0].setAttribute(arguments[1], arguments[2])",
+			webElement,
+		   "style",
+		   OriginalStyle);
+		}
+
+		public static void SendText(this IWebElement webElement,string value) {
+            if (Debug) webElement.HighlightElement(1);
+			webElement.SendKeys(value);
 		}
 
 		public static void HoverElement(this IWebElement webElement)

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using NUnit.Framework;
 using TestProjectWP.Dictionaries;
+using TestProjectWP.Extensions;
 using TestProjectWP.Models;
 using TestProjectWP.Pages;
 
@@ -12,7 +13,7 @@ namespace TestProjectWP.Tests
 
 		[SetUp]
 		public void SetUp() {
-		  		
+			
 		}
 
 		[TestCaseSource("TestCaseData")]

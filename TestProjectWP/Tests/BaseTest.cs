@@ -19,6 +19,7 @@ namespace TestProjectWP.Tests
 	//[TestFixture(Browser.Firefox, "80.0")]
 	public class BaseTest
 	{
+		
 		public IWebDriver Driver;
 		private Browser _browser; //remote driver settings.
 		private string _version; //remote driver settings.
@@ -33,10 +34,12 @@ namespace TestProjectWP.Tests
 		public void OneTimeSetUp()
 		{
             Environment.CurrentDirectory = Path.GetDirectoryName(GetType().Assembly.Location);
+			//Debug to highlight element 
+			WebElementExtensions.Debug = true;
 			//Remote driver settings 
 			//DriverOptions options = initOptions(_browser, _version);
-            //Driver = new RemoteWebDriver(options);
-            Driver = new ChromeDriver();
+			//Driver = new RemoteWebDriver(options);
+			Driver = new ChromeDriver();
             Driver.Manage().Window.Maximize();
         }
 
