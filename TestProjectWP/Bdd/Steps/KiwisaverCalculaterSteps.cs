@@ -42,8 +42,8 @@ namespace TestProjectWP.Bdd.Steps
             kiwiSaverCalculator.IsValidCurrentAgeHelpTextDisplayed(message);
         }
 
-        [When(@"I entered all given values (.*), (.*), (.*), (.*), (.*)")]
-        public void WhenIEnteredAllGivenUser(String currentAge,string employmentStatus,string salary,string kiwiMemberContribution, string riskProfile)
+        [When(@"I entered all given values (.*), (.*), (.*), (.*), (.*), (.*), (.*), (.*), (.*)")]
+        public void WhenIEnteredAllGivenUser(String currentAge, String employmentStatus, String salary, String kiwiMemberContribution, String currentKiwiBalance, String voluntaryContributions, String voluntaryContributionsFrequency, String riskProfile, String savingsGoalAtRetirement)
         {
 
             //Todo : Clean up required move to commons... 
@@ -52,11 +52,11 @@ namespace TestProjectWP.Bdd.Steps
             CurrentAge = uint.Parse(currentAge),
 			EmploymentStatus = (EmploymentStatus)Enum.Parse(typeof(EmploymentStatus), employmentStatus),//EmploymentStatus.NotEmployed,
 			Salary = salary == "" ? 0 : uint.Parse(salary),
-			//VoluntaryContributions = voluntaryContributions == "" ? 0 : uint.Parse(voluntaryContributions),
-			//VCFrequency = VoluntaryContributionsFrequency == "" ? Frequency.None : (Frequency)Enum.Parse(typeof(Frequency), VoluntaryContributionsFrequency),
-			//CurrentKiwiBalance = CurrentKiwiBalance == "" ? 0 : uint.Parse(CurrentKiwiBalance),
+			VoluntaryContributions = voluntaryContributions == "" ? 0 : uint.Parse(voluntaryContributions),
+			VCFrequency = voluntaryContributionsFrequency == "" ? Frequency.None : (Frequency)Enum.Parse(typeof(Frequency), voluntaryContributionsFrequency),
+			CurrentKiwiBalance = currentKiwiBalance == "" ? 0 : uint.Parse(currentKiwiBalance),
 			RiskProfile = riskProfile == "" ? RiskProfile.None : (RiskProfile)Enum.Parse(typeof(RiskProfile), riskProfile),
-			//SavingsGoalAtRetirement = SavingsGoalAtRetirement == "" ? 0 : uint.Parse(SavingsGoalAtRetirement),
+			SavingsGoalAtRetirement = savingsGoalAtRetirement == "" ? 0 : uint.Parse(savingsGoalAtRetirement),
 			KiwiMemberContribution = kiwiMemberContribution == "" ? KiwiMemberContribution.None : (KiwiMemberContribution)Enum.Parse(typeof(KiwiMemberContribution), kiwiMemberContribution),
             };
 

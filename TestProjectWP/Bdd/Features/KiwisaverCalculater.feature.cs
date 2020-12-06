@@ -130,8 +130,10 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.DescriptionAttribute("Kiwisaver retirement projected balance")]
         [NUnit.Framework.CategoryAttribute("Story")]
         [NUnit.Framework.CategoryAttribute("2")]
-        [NUnit.Framework.TestCaseAttribute("30", "Employed", "82000", "FourPercent", "Defensive", "436365", null)]
-        public virtual void KiwisaverRetirementProjectedBalance(string age, string employmentStatus, string salary, string kiwiMemberContribution, string riskProfile, string balance, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("30", "Employed", "82000", "FourPercent", "", "", "", "Defensive", "", "436365", null)]
+        [NUnit.Framework.TestCaseAttribute("45", "SelfEmployed", "", "", "100000", "90", "Fortnightly", "Conservative", "290000", "259581", null)]
+        [NUnit.Framework.TestCaseAttribute("55", "NotEmployed", "", "", "140000", "10", "Annually", "Balanced", "200000", "197679", null)]
+        public virtual void KiwisaverRetirementProjectedBalance(string age, string employmentStatus, string salary, string kiwiMemberContribution, string currentKiwiBalance, string voluntaryContributions, string voluntaryContributionsFrequency, string riskProfile, string savingsGoalAtRetirement, string balance, string[] exampleTags)
         {
             string[] @__tags = new string[] {
                     "Story",
@@ -146,7 +148,11 @@ this.ScenarioInitialize(scenarioInfo);
             argumentsOfScenario.Add("EmploymentStatus", employmentStatus);
             argumentsOfScenario.Add("Salary", salary);
             argumentsOfScenario.Add("KiwiMemberContribution", kiwiMemberContribution);
+            argumentsOfScenario.Add("CurrentKiwiBalance", currentKiwiBalance);
+            argumentsOfScenario.Add("VoluntaryContributions", voluntaryContributions);
+            argumentsOfScenario.Add("VoluntaryContributionsFrequency", voluntaryContributionsFrequency);
             argumentsOfScenario.Add("RiskProfile", riskProfile);
+            argumentsOfScenario.Add("SavingsGoalAtRetirement", savingsGoalAtRetirement);
             argumentsOfScenario.Add("Balance", balance);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Kiwisaver retirement projected balance", null, tagsOfScenario, argumentsOfScenario);
 #line 13
@@ -173,7 +179,7 @@ this.ScenarioInitialize(scenarioInfo);
     testRunner.Given("I am on retirement calculator page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 15
-    testRunner.When(string.Format("I entered all given values {0}, {1}, {2}, {3}, {4}", age, employmentStatus, salary, kiwiMemberContribution, riskProfile), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When(string.Format("I entered all given values {0}, {1}, {2}, {3}, {4}, {5}, {6}, {7}, {8}", age, employmentStatus, salary, kiwiMemberContribution, currentKiwiBalance, voluntaryContributions, voluntaryContributionsFrequency, riskProfile, savingsGoalAtRetirement), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 16
  testRunner.And("I click on View your KiwiSaver retirement projections", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");

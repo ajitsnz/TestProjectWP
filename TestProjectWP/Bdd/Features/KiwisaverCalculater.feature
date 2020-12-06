@@ -12,9 +12,11 @@ Scenario Outline: Help messsage displayed on retirement calculator
 @Story 2
 Scenario Outline: Kiwisaver retirement projected balance
     Given I am on retirement calculator page
-    When I entered all given values <Age>, <EmploymentStatus>, <Salary>, <KiwiMemberContribution>, <RiskProfile>
+    When I entered all given values <Age>, <EmploymentStatus>, <Salary>, <KiwiMemberContribution>, <CurrentKiwiBalance>, <VoluntaryContributions>, <VoluntaryContributionsFrequency>, <RiskProfile>, <SavingsGoalAtRetirement>
 	And I click on View your KiwiSaver retirement projections
 	Then It should display estimated kiwisaver balance <Balance> at age 65
 	Examples: 
-	| Age | EmploymentStatus | Salary | KiwiMemberContribution | RiskProfile | Balance |
-	| 30  | Employed        | 82000  | FourPercent            | Defensive   | 436365     |
+	| Age | EmploymentStatus | Salary | KiwiMemberContribution | CurrentKiwiBalance | VoluntaryContributions | VoluntaryContributionsFrequency | RiskProfile  | SavingsGoalAtRetirement | Balance |
+	| 30  | Employed         | 82000  | FourPercent            |                    |                        |                                 | Defensive    |                         | 436365     |
+	| 45  | SelfEmployed     |        |                        | 100000             | 90                     | Fortnightly                     | Conservative | 290000                  | 259581     |
+	| 55  | NotEmployed      |        |                        | 140000             | 10                     | Annually                        | Balanced     | 200000                  | 197679      |
