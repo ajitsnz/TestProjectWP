@@ -14,8 +14,6 @@ namespace TestProjectWP.Pages
 			this.SwitchTo();
 		}
 
-		#region Simple methods
-
 		public KiwisaverCalculatorPage FillCurrentAge(uint age)
 		{
 			CustomTestContext.WriteLine($"Fill Current age - '{age}'");
@@ -40,82 +38,6 @@ namespace TestProjectWP.Pages
 
 		public void Submit() =>_Submit.Click();
 
-
-
-		#endregion
-
-		#region Page conditions methods
-		/*
-		[AllureStep("Check success message displayed")]
-		public bool IsSuccessMessageDisplayed()
-		{
-			CustomTestContext.WriteLine("Check success message displayed");
-
-			return Driver.WaitUntilElementIsDisplay(By.XPath(SUCCESS_MESSAGE), TimeSpan.FromSeconds(3));
-		}
-
-
-		
-		[AllureStep("Check validation error messages displayed")]
-		public bool IsRequiredFieldsValidationErrorsDisplayed()
-		{
-			IList<IWebElement> requiredFields = new List<IWebElement>()
-			{
-				FirstNameInput,
-				LastNameInput,
-				EmailInput,
-				PhoneInput,
-				AddressLine1Input,
-				CityInput,
-				ZipCodeInput,
-				FirstItemRadioButton,
-				SecondItemRadioButton,
-				ThirdItemRadioButton,
-				CommentInput
-			};
-
-		
-
-			Driver.WaitUntilElementIsDisplay(By.XPath(VALIDATION_ERRORS));
-
-			foreach (var field in requiredFields)
-			{
-				field.Scroll();
-
-				if (!field.GetAttribute("class").Contains("wpforms-error"))
-				{
-					CustomTestContext.WriteLine($"There is no validation message in field - {field.GetAttribute("name")}");
-					return false;
-				}
-			}
-
-			return true;
-		}
-
-		*/
-
-		/*
-		[AllureStep("Check total amount")]
-		public bool IsExpectedTotalAmountDisplayed(string expectedAmount)
-		{
-			CustomTestContext.WriteLine($"Total amount should be {expectedAmount}");
-
-			if (Driver.IsTextPresentInElementLocated(By.XPath(TOTAL_AMOUNT), expectedAmount))
-			{
-				return true;
-			}
-			else
-			{
-				var actualText = TotalAmountTextField.Text;
-				CustomTestContext.WriteLine($"Actual result: {actualText}");
-			}
-
-			return false;
-		}
-		
-		*/
-		#endregion
-
 		#region Elements
 
 		public void SwitchTo() { 
@@ -137,8 +59,9 @@ namespace TestProjectWP.Pages
         public string _currentAgeInfoHelpText = "This calculator has an age limit of 64 years old as you need to be under the age of 65 to join KiwiSaver.";
 		// "This calculator has an age limit of 18 to 64 years old."; 
 
-		public void IsValidCurrentAgeHelpTextDisplayed() {
+		public void IsValidCurrentAgeHelpTextDisplayed(string message ="") {
 			 CustomTestContext.WriteLine("Check CurrentAgeHelpText message");
+			if (!message.Equals("")) _currentAgeInfoHelpText = message;
 			_currentAgeInfoHelp.Text.Should().Be(_currentAgeInfoHelpText);
 		}
 		
@@ -232,10 +155,6 @@ namespace TestProjectWP.Pages
 					break;
 		   	}
 		}
-		#endregion
-
-		#region Locators
-
 		#endregion
 	}
 }

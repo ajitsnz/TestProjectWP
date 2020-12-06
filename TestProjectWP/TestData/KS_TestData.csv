@@ -1,4 +1,4 @@
 Description,	CurrentAge,	EmploymentStatus,	Salary,	KiwiMemberContribution,	CurrentKiwiBalance,	VoluntaryContributions,	VoluntaryContributionsFrequency,	RiskProfile,	SavingsGoalAtRetirement,	Projection
-DD - Kiwisaver projected balance for Employed user at age 30,	30,	Employed,	82000,FourPercent,,,,Defensive,,436365
-DD - Kiwisaver projected balance for Self Employed user at age 45,	45,	SelfEmployed,,,			100000,	90,	Fortnightly,	Conservative,	290000,259581
-DD - Kiwisaver projected balance for NotEmployed user at age 55,	55,	NotEmployed,,,	140000,		10,Annually,			Balanced,	200000,197679
+Kiwisaver projected balance for Employed user at age 30,	30,	Employed,	82000,FourPercent,,,,Defensive,,436365
+Kiwisaver projected balance for Self Employed user at age 45,	45,	SelfEmployed,,,			100000,	90,	Fortnightly,	Conservative,	290000,259581
+ Kiwisaver projected balance for NotEmployed user at age 55,	55,	NotEmployed,,,	140000,		10,Annually,			Balanced,	200000,197679
