@@ -14,11 +14,18 @@ namespace TestProjectWP.Bdd.Steps
 
         IWebDriver driver;
         KiwisaverCalculatorPage kiwiSaverCalculator;
+        private readonly ScenarioContext _scenarioContext;
+
+        public KiwisaverCalculaterSteps(ScenarioContext scenarioContext)
+        {
+            _scenarioContext = scenarioContext;
+        }
+
 
         [Given(@"I am on retirement calculator page")]
         public void GivenIAmOnRetirementCalculatorPage()
         {
-            driver = (IWebDriver)ScenarioContext.Current["Driver"];
+            driver = (IWebDriver)_scenarioContext["Driver"];
             kiwiSaverCalculator = new KiwisaverCalculatorPage(driver);
 
         }
@@ -35,7 +42,7 @@ namespace TestProjectWP.Bdd.Steps
             kiwiSaverCalculator.IsValidCurrentAgeHelpTextDisplayed(message);
         }
 
-        [When(@"I entered all given values (.*), (.*),(.*), (.*), (.*)")]
+        [When(@"I entered all given values (.*), (.*), (.*), (.*), (.*)")]
         public void WhenIEnteredAllGivenUser(String currentAge,string employmentStatus,string salary,string kiwiMemberContribution, string riskProfile)
         {
             var userDetails = new User()

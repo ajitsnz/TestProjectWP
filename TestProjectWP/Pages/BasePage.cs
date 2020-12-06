@@ -6,7 +6,7 @@ namespace TestProjectWP.Pages
 	class BasePage
 	{
 		public IWebDriver Driver { get; }
-		public string BaseUrl = "https://www.westpac.co.nz/";
+		public string BaseUrl = "https://www.westpac.co.nz";
 
 		protected BasePage(IWebDriver driver)
 		{

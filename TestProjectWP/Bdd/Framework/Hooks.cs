@@ -1,9 +1,5 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using TechTalk.SpecFlow;
 
 namespace TestProjectWP.Bdd.Framework
@@ -13,11 +9,19 @@ namespace TestProjectWP.Bdd.Framework
     {
         public IWebDriver Driver;
 
+
+        private readonly ScenarioContext _scenarioContext;
+
+        public Hooks1(ScenarioContext scenarioContext)
+        {
+            _scenarioContext = scenarioContext;
+        }
+
         [BeforeScenario]
         public void BeforeScenario()
         {
             Driver = new ChromeDriver();
-            ScenarioContext.Current["Driver"] = Driver;
+            _scenarioContext["Driver"] = Driver;
             Driver.Manage().Window.Maximize();
         }
 
