@@ -5,3 +5,6 @@ Project is using .net core 3.1
 3) BDD (speclfow/Gherkin examples) - https://github.com/ajitsnz/TestProjectWP/blob/main/TestProjectWP/Bdd/Features/KiwisaverCalculater.feature
 
 ChromeBrowser  - Version 87.x is required.
+
+Quick video : 
+Video link -- https://www.dropbox.com/s/4tim7974p7475bg/C%23%20Project%20Video.mp4?dl=0 
