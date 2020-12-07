@@ -60,14 +60,14 @@ namespace TestProjectWP.Bdd.Steps
 			KiwiMemberContribution = kiwiMemberContribution == "" ? KiwiMemberContribution.None : (KiwiMemberContribution)Enum.Parse(typeof(KiwiMemberContribution), kiwiMemberContribution),
             };
 
-            kiwiSaverCalculator.FillKiwisaverRetirementCalculator(userDetails);
+            kiwiSaverCalculator.Fill_KiwisaverRetirementCalculator(userDetails);
 
         }
 
         [When(@"I click on View your KiwiSaver retirement projections")]
         public void WhenIClickOnViewYourKiwisaverRetirementProjections()
         {
-            kiwiSaverCalculator.Submit();
+            kiwiSaverCalculator.Click_ViewProjection();
         }
 
         [Then(@"It should display estimated kiwisaver balance (.*) at age 65")]

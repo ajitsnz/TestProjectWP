@@ -11,17 +11,14 @@ namespace TestProjectWP.Tests
 	{
 		public KiwiSaverCalculatorTests(Browser browser, string version) : base(browser, version) {}
 
-		[SetUp]
-		public void SetUp() {
-			
-		}
+		[SetUp] public void SetUp() {}
 
 		[TestCaseSource("TestCaseData")]
 		public void KiwiSaverTest(User userDetails)
 		{
 		    var kiwisaverCalculator = new KiwisaverCalculatorPage(Driver);
-            kiwisaverCalculator.FillKiwisaverRetirementCalculator(userDetails);
-            kiwisaverCalculator.Submit();
+            kiwisaverCalculator.Fill_KiwisaverRetirementCalculator(userDetails);
+            kiwisaverCalculator.Click_ViewProjection();
 			kiwisaverCalculator.IsValidProjection(userDetails.Projection);
 		}
 
@@ -120,8 +117,8 @@ namespace TestProjectWP.Tests
 
 			var kiwisaverCalculator = new KiwisaverCalculatorPage(Driver);
 			randomIndividualData.CreateRandomIndividual();
-            kiwisaverCalculator.FillKiwisaverRetirementCalculator(randomIndividualData);
-			kiwisaverCalculator.Submit();
+            kiwisaverCalculator.Fill_KiwisaverRetirementCalculator(randomIndividualData);
+			kiwisaverCalculator.Click_ViewProjection();
 		}
 	}
 }

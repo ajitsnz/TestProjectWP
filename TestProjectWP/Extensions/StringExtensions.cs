@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace TestProjectWP.Extensions
 {
@@ -13,6 +14,12 @@ namespace TestProjectWP.Extensions
 				case "": throw new ArgumentException($"{nameof(input)} cannot be empty", nameof(input));
 				default: return input.First().ToString().ToUpper() + input.Substring(1);
 			}
+		}
+
+		public static string StringToInteger(this String input) {
+			if(input != null) 
+			return Regex.Replace(input, "[^0-9]+", string.Empty); 
+			return input;
 		}
 	}
 
