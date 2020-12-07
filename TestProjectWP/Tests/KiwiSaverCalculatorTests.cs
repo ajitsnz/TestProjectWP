@@ -48,7 +48,7 @@ namespace TestProjectWP.Tests
 				 * chooses a Defensive risk profile 
 				 * can calculate his projected balances at retirement.
 				 * 
-				 * Added Projeced value for validaion - 436365  Todo : (Question) ?
+				 * Added Projeced value for validaion - 436365  
 				 * */
 
 				yield return new TestCaseData(new User() { 
@@ -69,7 +69,7 @@ namespace TestProjectWP.Tests
 				 * with saving goals requirement of $290000 
 				 * can calculate his projected balances at retirement.
 				 * 
-				 * Added Projeced value for validaion - 259581  Todo : (Question) ?
+				 * Added Projeced value for validaion - 259581  
 				 */
 
 				yield return new TestCaseData(new User()
@@ -93,7 +93,7 @@ namespace TestProjectWP.Tests
 				 * with saving goals requirement of $200000 
 				 * is able to calculate his projected balances at retirement.
 				 * 
-				 * Added Projeced value for validaion - 197679  Todo : (Question) ?
+				 * Added Projeced value for validaion - 197679  
 				 * */
 
 
