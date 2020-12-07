@@ -11,7 +11,13 @@ namespace TestProjectWP.Tests
 	{
 		public KiwiSaverCalculatorTests(Browser browser, string version) : base(browser, version) {}
 
-		[SetUp] public void SetUp() {}
+		[SetUp] 
+		public void SetUp() {
+			
+		}
+
+		
+
 
 		[TestCaseSource("TestCaseData")]
 		public void KiwiSaverTest(User userDetails)

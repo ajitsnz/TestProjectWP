@@ -10,9 +10,33 @@ namespace TestProjectWP.Pages
 	{
 		public KiwisaverCalculatorPage(IWebDriver driver) : base(driver)
 		{
-			driver.Navigate().GoToUrl($"{BaseUrl}/kiwisaver/calculators/kiwisaver-calculator/");
-			this.SwitchTo();
+			driver.Navigate().GoToUrl($"{BaseUrl}");
+			this.SwitchToRetirementCalculator();
 		}
+
+
+		//todo cleanup 
+		private void SwitchToRetirementCalculator()
+		{
+			var homePage = new HomePage(Driver);
+			homePage.Click_KiwiSaverCalculator();
+			homePage.Click_KiwiSaverRetirementCalculator();
+			IsPageDisplayed();
+            Driver.SwitchTo().Frame(0);
+			IsElementLoaded();
+		}
+
+		public void IsPageDisplayed() {
+			Driver.WaitUntilElementIsDisplay(_RetirementPage);
+		}
+
+		public void IsElementLoaded() {
+			Driver.WaitUntilElementIsClickable(_currentAgeBy);
+		}
+
+		protected By _RetirementPage => By.XPath("//h1[normalize-space()='KiwiSaver Retirement Calculator']");
+
+		protected By _currentAgeBy => By.XPath("//div[contains(@model,'ctrl.data.CurrentAge')]//input[contains(@type,'text')]");
 
 		protected IWebElement _currentAge => Driver.FindElement(By.XPath("//div[contains(@model,'ctrl.data.CurrentAge')]//input[contains(@type,'text')]"));
 		protected IWebElement _employmentStatus => Driver.FindElement(By.XPath("//div[contains(@ng-model,'ctrl.data.EmploymentStatus')]//div[contains(@class,'well-value ng-binding')]"));
@@ -38,7 +62,7 @@ namespace TestProjectWP.Pages
 
 		public void IsValidProjection(uint expectedValue)
 		{
-			CustomTestContext.WriteLine("Check Balance Projection value");
+			CustomTestContext.WriteLine("Check Balance Projected value");
 			var actualValue = _projection.Text.StringToInteger();
 			actualValue.Should().Be(expectedValue.ToString());
 		}
@@ -138,6 +162,7 @@ namespace TestProjectWP.Pages
 
 		public KiwisaverCalculatorPage Fill_KiwisaverRetirementCalculator(User user)
 		{
+			IsElementLoaded();
 			_currentAge.SendText(user.CurrentAge.ToString());
 			SetEmploymentStatus(user.EmploymentStatus);
 			if (user.EmploymentStatus.Equals(EmploymentStatus.Employed)) _salary.SendText(user.Salary.ToString());
@@ -152,12 +177,6 @@ namespace TestProjectWP.Pages
 
 		public void Click_ViewProjection() => _Submit.Click();
 
-		//todo cleanup 
-		private void SwitchTo()
-		{
-			Driver.SwitchTo().DefaultContent();
-			Driver.SwitchTo().Frame(0);
-		}
 
 	}
 }
