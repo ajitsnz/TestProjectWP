@@ -2,7 +2,7 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 
-namespace TestProjectWP.Ajit.pages
+namespace TestProjectWP.Ajit.Tests
 {
     public class BaseTest
     {
