@@ -6,5 +6,5 @@ Project is using .net core 3.1
 
 ChromeBrowser  - Version 87.x is required.
 
-Quick video : 
+Short video : 
 Video link -- https://www.dropbox.com/s/4tim7974p7475bg/C%23%20Project%20Video.mp4?dl=0 
